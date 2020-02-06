@@ -6,12 +6,30 @@
 
 public class FirstLastVowel
 {
+private char first, last;
+private String String;
    public static String go( String a )
 	{
-		return "add code here";
+	   String s = a;
+	   char first, last;
+	   first = s.charAt(0);
+	   last = s.charAt(s.length() - 1);
+	   boolean boolb = false;
+	   if (first == 'A'	|| first == 'E' || first == 'I' || first == 'O' || first == 'U' || first == 'a' || first == 'e' || first == 'i' || first == 'o' || first == 'u'){ 
+		   boolb = true;
+	   }
+	   if (last == 'A'	|| last == 'E' || last == 'I' || last == 'O' || last == 'U' || last == 'a' || last == 'e' || last == 'i' || last == 'o' || last == 'u'){ 
+		   boolb = true;
+	   }
+	   if (boolb) {
+		   return ("yes");
+	   }
+	   else {
+		   return "no";
+	   }
+	   
 	}
-   private char first, last;
-   private String String;
+  
    
    
   
