@@ -30,16 +30,19 @@ public class StringExplorer
 		}
 		//  Try other methods here:
 		int index = 0;
+		int position1;
 		int count = 0;
 		while (index < sample.length()) {
-			int position1 = sample.indexOf("the", index);
+			position1 = sample.indexOf("the", index);
 			if (position1 >= 0) {
 				count++;
+				index = position1 + 1;
 			}
-			index = position1;
-			System.out.println(count);
+			if (index == 49) {
+				index = 300;
+			}
 		}
-		
+		System.out.println(count);
 	}
 
 }

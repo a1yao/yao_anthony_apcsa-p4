@@ -47,12 +47,37 @@ public class Magpie4
 		{
 			response = "Tell me more about your family.";
 		}
+		else if (findKeyword(statement, "dog") >= 0 || findKeyword(statement, "cat") >= 0) {
+			response = "Tell me more about your pets.";
+		}
+		else if (findKeyword(statement, "Mauro") >= 0) {
+			response = "Mr. Mauro is a good teacher.";
+		}
+		else if (findKeyword(statement, "jacket") >= 0 || findKeyword(statement, "jeans") >= 0 || findKeyword(statement, "shirt") >= 0) {
+			response = "Fashion is cool.";
+		}
+		else if (findKeyword(statement, "CCA") >= 0) {
+			response = "CCA is a good school.";
+		}
+		else if (findKeyword(statement, "TP") >= 0) {
+			response = "TP is a good school, but not as good as CCA.";
+		}
+		else if (findKeyword(statement, "no") >= 0) {
+			response = "Why so negative";
+		}
 
 		// Responses which require transformations
 		else if (findKeyword(statement, "I want to", 0) >= 0)
 		{
 			response = transformIWantToStatement(statement);
 		}
+		else if (findKeyword (statement, "I want", 0) >= 0) {
+			response = transformIWantStatement(statement);
+		}
+		else if ((findKeyword(statement, "I") >= 0 || findKeyword(statement, "you", 2) >= 0)) {
+			response = transformIYouStatement(statement);
+		}
+		
 
 		else
 		{
@@ -79,6 +104,34 @@ public class Magpie4
 	 * @param statement the user statement, assumed to contain "I want to"
 	 * @return the transformed statement
 	 */
+	private String transformIWantStatement(String statement) {
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psn = findKeyword(statement, "I want");
+		String restOfStatement = statement.substring(psn + 6).trim();
+		return "Would you really be happy with " + restOfStatement;
+	}
+	private String transformIYouStatement(String statement) {
+		statement = statement.trim();
+		String lastChar = statement.substring(statement
+				.length() - 1);
+		if (lastChar.equals("."))
+		{
+			statement = statement.substring(0, statement
+					.length() - 1);
+		}
+		int psnOfI = findKeyword (statement, "I", 0);
+		int psnOfYou = findKeyword (statement, "you", psnOfI + 1);
+		
+		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou).trim();
+		return "Why do you " + restOfStatement + " me?";
+	}
 	private String transformIWantToStatement(String statement)
 	{
 		//  Remove the final period, if there is one
