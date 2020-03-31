@@ -8,8 +8,6 @@ public class RationalRunner
 {
 	public static void main( String args[] )
 	{
-		/*uncomment once Rational class is built
-		 *
 		Rational test = new Rational();
 		out.println("test = " + test);
 
@@ -27,16 +25,16 @@ public class RationalRunner
 		out.println("1/2.equals(2/3) = "+rOne.equals(rTwo));
 		test.setRational(4,6);
 		out.println("2/3.equals(4/6) = "+rTwo.equals(test));
-				
+//				
 		out.println("\n\nrOne = "+rOne);
 		out.println("rTwo = "+rTwo);
-
+//
 		out.println("rOne.compareTo(rTwo) = "+rOne.compareTo(rTwo));
 		out.println("rTwo.compareTo(rOne) = "+rTwo.compareTo(rOne));
-
+//
 		rOne.add(rTwo);
 		out.println("\n\nrOne.add(rTwo) = "+ rOne);
-
+//
 		rOne.setRational(1,2);
 		rTwo.setRational(1,3);
 		rOne.add(rTwo);
@@ -65,6 +63,6 @@ public class RationalRunner
 		out.println("\n\n1/6.equals(2/8) = "+rOne.equals(rTwo));				
 		rOne.add(rTwo);
 		out.println("\n\n1/6.add(2/8) = "+ rOne);		
-		*/	
+		
 	}
 }
